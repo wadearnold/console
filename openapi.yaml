@@ -1,0 +1,84 @@
+openapi: 3.0.2
+info:
+  description: Console...
+  version: v1
+  title: Console API
+  contact:
+    url: https://github.com/moov-io/console
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+servers:
+  - url: http://localhost:8090
+    description: Local development
+
+tags:
+  - name: TODO
+    description: TODO
+
+paths:
+  /TODO:
+    get:
+      tags: [TODO]
+      summary: TODO
+      operationId: TODO
+      security:
+        - bearerAuth: []
+        - cookieAuth: []
+      parameters:
+        - name: X-Request-ID
+          in: header
+          description: Optional Request ID allows application developer to trace requests through the systems logs
+          example: rs4f9915
+          schema:
+            type: string
+        - name: X-User-ID
+          in: header
+          required: true
+          description: Moov User ID
+          schema:
+            type: string
+        - name: offset
+          in: query
+          required: false
+          description: The number of items to skip before starting to collect the result set
+          schema:
+            type: integer
+            minimum: 1
+            default: 0
+        - name: limit
+          in: query
+          description: The number of items to return
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 100
+            default: 25
+            example: 10
+      responses:
+        '200':
+          description: TODO
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TODO'
+        '400':
+          description: "Invalid Gateway Object"
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/moov-io/api/master/openapi-common.yaml#/components/schemas/Error'
+
+components:
+  schemas:
+    TODO:
+      description: TODO
+      required:
+        - todo
+      properties:
+        TODO:
+          type: string
+          description: TODO
+          example: TODO

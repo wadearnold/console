@@ -21,5 +21,5 @@ import (
 func main() {
 	flag.Parse()
 
-	fmt.Printf("Starting console server version %s", console.Version)
+	fmt.Printf("Starting console server version %s\n", console.Version)
 }
